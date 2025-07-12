@@ -4,11 +4,11 @@ import { getMessages, getUsersForSidebar, sendMessage,markSeen } from "../contro
 
 const router = express.Router();
 
-router.get("/users",getUsersForSidebar)
+router.get("/users",protectRoute,getUsersForSidebar)
 
-router.get("/:userId",getMessages)
+router.get("/:userId",protectRoute,getMessages)
 
-router.post("/send/:id",sendMessage)
+router.post("/send/:id",protectRoute,sendMessage)
 
-router.put("/:userId",markSeen)
+router.put("/:userId",protectRoute,markSeen)
 export default router;
