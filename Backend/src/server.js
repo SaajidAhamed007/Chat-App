@@ -12,7 +12,7 @@ dotenv.config();
 app.use(express.json({limit:'10mb'}));
 app.use(cookieParser());
 app.use(cors({
-    origin:"https://chat-app-jet-alpha-84.vercel.app/",
+    origin:"https://chat-app-jet-alpha-84.vercel.app",
     credentials:true
 }));
 
