@@ -11,6 +11,7 @@ import { useThemeStore } from './store/useThemeStore'
 import { Loader } from 'lucide-react'
 import { Toaster } from "react-hot-toast"
 import { useState } from 'react'
+import { axiosInstance } from './lib/axios'
 
 const App = () => {
 

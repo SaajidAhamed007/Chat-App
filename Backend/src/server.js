@@ -20,7 +20,7 @@ app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
 
-server.listen(process.env.PORT, async () => {
+server.listen(process.env.PORT,"0.0.0.0", async () => {
     try {
         await connectDB();
         console.log(`Server is listening on port ${process.env.PORT}`);
