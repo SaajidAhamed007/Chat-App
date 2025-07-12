@@ -15,7 +15,6 @@ app.use(cors({
     origin:"https://chat-app-jet-alpha-84.vercel.app",
     credentials:true
 }));
-app.options("*", cors()); 
 
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
