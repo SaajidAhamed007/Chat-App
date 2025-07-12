@@ -83,11 +83,13 @@ export const useAuthStore = create((set,get)=>({
         const {authUser} = get()
         if(!authUser || get().socket?.connected) return;
 
-        const socket = io("https://chat-app-n6yx.onrender.com",{
-            query:{
-                userId: authUser._id,
-            }
-        })
+        const socket = io("https://chat-app-n6yx.onrender.com", {
+          query: {
+            userId: authUser._id
+          },
+          transports: ["websocket"],
+          withCredentials: true
+        });
         socket.connect();
         set({socket:socket}); 
 
