@@ -20,8 +20,10 @@ app.options("*", cors());
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
+app.get("/api/test", cors(), (req, res) => ...)
 
-server.listen(process.env.PORT,"0.0.0.0", async () => {
+
+server.listen(process.env.PORT || 3000,async () => {
     try {
         await connectDB();
         console.log(`Server is listening on port ${process.env.PORT}`);
