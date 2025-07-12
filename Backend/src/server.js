@@ -20,8 +20,6 @@ app.options("*", cors());
 app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 
-app.get("/api/test", cors(), (req, res) => ...)
-
 
 server.listen(process.env.PORT || 3000,async () => {
     try {
