@@ -42,6 +42,7 @@ const ChatContainer = () => {
     if(isMessagesLoading) return(
       <div className='flex-1 flex flex-col overflow-auto'>
         <ChatHeader />
+          <h1>hello</h1>
         <MessageSkeleton />
         <MessageInput />
       </div>
