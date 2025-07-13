@@ -7,15 +7,15 @@ const server = http.createServer(app);
 
 const io = new Server(server,{
     cors: {
-        origin: ["https://chat-app-jet-alpha-84.vercel.app/"]
+        origin: ["https://chat-app-jet-alpha-84.vercel.app"]
     }
 })
+
+const userSocketMap = {};
 
 export function getRecieverSocketId(userId) {
     return userSocketMap[userId];
 }
-
-const userSocketMap = {};
 
 io.on("connection",(socket) => {
     console.log("A user connected",socket.id);
