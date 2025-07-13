@@ -9,7 +9,7 @@ export const generateToken = (userId,res) => {
         httpOnly:true,
         secure:true,
         sameSite:"none",
-        maxAge:24*7**60*60*1000
+        maxAge:24*7*60*60*1000
     })
     return token;
 }
