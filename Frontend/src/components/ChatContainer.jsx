@@ -5,7 +5,6 @@ import MessageInput from './MessageInput';
 import MessageSkeleton from './skeleton/MessageSkeleton';
 import { useAuthStore } from '../store/useAuthStore';
 import { formatMessageTime } from '../lib/utils';
-import { Loader } from 'lucide-react';
 
 const ChatContainer = () => {
 
@@ -42,10 +41,8 @@ const ChatContainer = () => {
 
     if(isMessageLoading){
       return(
-        <div className='flex-1 items-center justify-center flex flex-col overflow-auto'>
-          <Loader size={20} />
-        </div>
-      ) 
+          <MessageSkeleton/>
+      )
     }
 
   return (
