@@ -5,10 +5,11 @@ import MessageInput from './MessageInput';
 import MessageSkeleton from './skeleton/MessageSkeleton';
 import { useAuthStore } from '../store/useAuthStore';
 import { formatMessageTime } from '../lib/utils';
+import { Loader } from 'lucide-react';
 
 const ChatContainer = () => {
 
-    const {messages,getMessages,isMessagesLoading,selectedUser,listeningToMessage,unListeningToMessage,markSeen} = useChatStore();
+    const {messages,getMessages,isMessageLoading,selectedUser,listeningToMessage,unListeningToMessage,markSeen} = useChatStore();
     const {authUser} = useAuthStore()
     const messageEndRef = useRef(null)
 
@@ -34,19 +35,18 @@ const ChatContainer = () => {
         (msg) => msg.senderId === selectedUser._id && !msg.isSeen
       );
 
-      if (unseen) {
+    if (unseen) {
         markSeen(selectedUser._id);
       }
     },[selectedUser._id, messages, markSeen]);
 
-    if(isMessagesLoading) return(
-      <div className='flex-1 flex flex-col overflow-auto'>
-        <ChatHeader />
-          <h1>hello</h1>
-        <MessageSkeleton />
-        <MessageInput />
-      </div>
-    ) 
+    if(isMessageLoading){
+      return(
+        <div className='flex-1 items-center justify-center flex flex-col overflow-auto'>
+          <Loader size={20} />
+        </div>
+      ) 
+    }
 
   return (
     <div className='flex-1 flex flex-col overflow-auto'>
